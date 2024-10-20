@@ -49,7 +49,7 @@
 
     // Rotary encoder
     #ifdef USEROTARY_ENABLE
-        //#define REVERSE_ROTARY                        // To reverse encoder's direction; switching CLK / DT in hardware does the same
+        #define REVERSE_ROTARY                          // To reverse encoder's direction; switching CLK / DT in hardware does the same
         #define ROTARYENCODER_CLK           5           // rotary encoder's CLK
         #define ROTARYENCODER_DT            6           // Info: Lolin D32 / Lolin D32 pro 35 are using 35 for battery-voltage-monitoring!
     #endif
