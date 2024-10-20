@@ -14,12 +14,21 @@
     // So if connecting a button to these, make sure to add a 10k-pullup-resistor for each button.
     // Further infos: https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
     #ifdef SD_MMC_1BIT_MODE
+        #define SOC_SDMMC_USE_GPIO_MATRIX 1
+        #define BOARD_HAS_SDMMC 1
+        #define SDMMC_SLOT_FLAG_INTERNAL_PULLUP BIT(0) // enable internal pullups on enabled pins --> set the following code in SD_MMC.cpp `host.flags = SDMMC_HOST_FLAG_1BIT; //use 1-line SD mode` 
+        #define SDMMC_CMD 11
+        #define SDMMC_CLK 12
+        #define SDMMC_D0 13
         // uSD-card-reader (via SD-MMC 1Bit)
         //
         // SD_MMC uses fixed pins
         //  (MOSI)    15  CMD
         //  (SCK)     14  SCK
         //  (MISO)     2  D0
+        //#define SPISD_MOSI              11          // (CMD) GPIO for master out slave in (SD) => not necessary for single-SPI
+        //#define SPISD_MISO              13          // (D0) GPIO for master in slave ou (SD) => not necessary for single-SPI
+        //#define SPISD_SCK               12          // (SCK) GPIO for clock-signal (SD) => not necessary for single-SPI
     #else
         // uSD-card-reader (via SPI)
         #define SPISD_CS                    46          // GPIO for chip select (SD)
@@ -33,9 +42,9 @@
     // RFID (via SPI)
     #define RST_PIN                         99          // Not necessary but has to be set anyway; so let's use a dummy-number
     #define RFID_CS                          1          // GPIO for chip select (RFID)
-    #define RFID_MOSI                       11          // GPIO for master out slave in (RFID)
-    #define RFID_MISO                       13          // GPIO for master in slave out (RFID)
-    #define RFID_SCK                        12          // GPIO for clock-signal (RFID)
+    #define RFID_MOSI                       39          // GPIO for master out slave in (RFID)
+    #define RFID_MISO                       41          // GPIO for master in slave out (RFID)
+    #define RFID_SCK                        40          // GPIO for clock-signal (RFID)
 
     #ifdef RFID_READER_TYPE_PN5180
         #define RFID_BUSY                   42          // PN5180 BUSY PIN
