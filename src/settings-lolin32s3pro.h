@@ -41,26 +41,26 @@
 
     // RFID (via SPI)
     #define RST_PIN                         99          // Not necessary but has to be set anyway; so let's use a dummy-number
-    #define RFID_CS                          1          // GPIO for chip select (RFID)
-    #define RFID_MOSI                       39          // GPIO for master out slave in (RFID)
-    #define RFID_MISO                       41          // GPIO for master in slave out (RFID)
-    #define RFID_SCK                        40          // GPIO for clock-signal (RFID)
+    #define RFID_CS                         43          // GPIO for chip select (RFID)
+    #define RFID_MOSI                       44          // GPIO for master out slave in (RFID)
+    #define RFID_MISO                       42          // GPIO for master in slave out (RFID)
+    #define RFID_SCK                        41          // GPIO for clock-signal (RFID)
 
     #ifdef RFID_READER_TYPE_PN5180
-        #define RFID_BUSY                   42          // PN5180 BUSY PIN
-        #define RFID_RST                    43          // PN5180 RESET PIN
-        #define RFID_IRQ                    44          // PN5180 IRQ PIN (only needed for low power card detection)
+        #define RFID_BUSY                   40          // PN5180 BUSY PIN
+        #define RFID_RST                     1          // PN5180 RESET PIN
+        #define RFID_IRQ                    39          // PN5180 IRQ PIN (only needed for low power card detection)
     #endif
     // I2S (DAC)
-    #define I2S_DOUT                        16          // Digital out (I2S)
+    #define I2S_DOUT                        18          // Digital out (I2S)
     #define I2S_BCLK                        17          // BCLK (I2S)
-    #define I2S_LRC                         18          // LRC (I2S)
+    #define I2S_LRC                         16          // LRC (I2S)
 
     // Rotary encoder
     #ifdef USEROTARY_ENABLE
         #define REVERSE_ROTARY                          // To reverse encoder's direction; switching CLK / DT in hardware does the same
-        #define ROTARYENCODER_CLK           5           // rotary encoder's CLK
-        #define ROTARYENCODER_DT            6           // Info: Lolin D32 / Lolin D32 pro 35 are using 35 for battery-voltage-monitoring!
+        #define ROTARYENCODER_CLK           4           // rotary encoder's CLK
+        #define ROTARYENCODER_DT            5           // Info: Lolin D32 / Lolin D32 pro 35 are using 35 for battery-voltage-monitoring!
     #endif
 
     // Amp enable (optional)
@@ -71,7 +71,7 @@
     #define NEXT_BUTTON                      9          // Button 0: GPIO to detect next
     #define PREVIOUS_BUTTON                 10          // Button 1: GPIO to detect previous (Important: as of 19.11.2020 changed from 33 to 2; make sure to change in SD-MMC-mode)
     #define PAUSEPLAY_BUTTON                99          // Button 2: GPIO to detect pause/play
-    #define ROTARYENCODER_BUTTON             4          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
+    #define ROTARYENCODER_BUTTON             6          // (set to 99 to disable; 0->39 for GPIO; 100->115 for port-expander)
     #define BUTTON_4                        99          // Button 4: unnamed optional button
     #define BUTTON_5                        99          // Button 5: unnamed optional button
 
