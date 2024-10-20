@@ -11,6 +11,7 @@ cmake-build-az-delivery-devkit-v4/
 cmake-build-debug/
 platformio-override.ini
 sdkconfig.*
+!sdkconfig.lolin32s3pro
 !sdkconfig.defaults
 src/settings-override.h
 src/settings-custom-override.h
