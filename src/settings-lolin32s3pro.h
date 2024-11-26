@@ -33,9 +33,9 @@
     // RFID (via SPI)
     #define RST_PIN                         99          // Not necessary but has to be set anyway; so let's use a dummy-number
     #define RFID_CS                          1          // GPIO for chip select (RFID)
-    #define RFID_MOSI                       39          // GPIO for master out slave in (RFID)
-    #define RFID_MISO                       40          // GPIO for master in slave out (RFID)
-    #define RFID_SCK                        41          // GPIO for clock-signal (RFID)
+    #define RFID_MOSI                       11          // GPIO for master out slave in (RFID)
+    #define RFID_MISO                       13          // GPIO for master in slave out (RFID)
+    #define RFID_SCK                        12          // GPIO for clock-signal (RFID)
 
     #ifdef RFID_READER_TYPE_PN5180
         #define RFID_BUSY                   42          // PN5180 BUSY PIN
