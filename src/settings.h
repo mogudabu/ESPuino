@@ -130,20 +130,20 @@
 	#define BUTTON_4_SHORT    CMD_SEEK_BACKWARDS
 	#define BUTTON_5_SHORT    CMD_SEEK_FORWARDS
 
-	#define BUTTON_0_LONG     CMD_LASTTRACK
-	#define BUTTON_1_LONG     CMD_FIRSTTRACK
+	#define BUTTON_0_LONG     CMD_SEEK_FORWARDS
+	#define BUTTON_1_LONG     CMD_SEEK_BACKWARDS
 	#define BUTTON_2_LONG     CMD_PLAYPAUSE
 	#define BUTTON_3_LONG     CMD_SLEEPMODE
 	#define BUTTON_4_LONG     CMD_VOLUMEUP
 	#define BUTTON_5_LONG     CMD_VOLUMEDOWN
 
-	#define BUTTON_MULTI_01   CMD_REPEAT_TRACK
+	#define BUTTON_MULTI_01   CMD_TOGGLE_WIFI_STATUS
 	#define BUTTON_MULTI_02   CMD_NOTHING
-	#define BUTTON_MULTI_03   CMD_SEEK_BACKWARDS
+	#define BUTTON_MULTI_03   CMD_NOTHING
 	#define BUTTON_MULTI_04   CMD_NOTHING
 	#define BUTTON_MULTI_05   CMD_NOTHING
 	#define BUTTON_MULTI_12   CMD_NOTHING
-	#define BUTTON_MULTI_13   CMD_SEEK_FORWARDS
+	#define BUTTON_MULTI_13   CMD_NOTHING
 	#define BUTTON_MULTI_14   CMD_NOTHING
 	#define BUTTON_MULTI_15   CMD_NOTHING
 	#define BUTTON_MULTI_23   CMD_NOTHING
@@ -220,7 +220,7 @@
 		#define CHIPSET					WS2812       	// type of Neopixel
 		#define COLOR_ORDER				GRB
 		#define NUM_LEDS_IDLE_DOTS		4           	// count of LEDs, which are shown when Idle
-		#define OFFSET_PAUSE_LEDS		false		// if true the pause-leds are centered in the mid of the LED-Strip
+		#define OFFSET_PAUSE_LEDS		true		// if true the pause-leds are centered in the mid of the LED-Strip
 		#define PROGRESS_HUE_START		85          	// Start and end hue of mulitple-LED progress indicator. Hue ranges from basically 0 - 255, but you can also set numbers outside this range to get the desired effect (e.g. 85-215 will go from green to purple via blue, 341-215 start and end at exactly the same color but go from green to purple via yellow and red)
 		#define PROGRESS_HUE_END		-1
 		#define DIMMABLE_STATES			50		// Number of dimmed values between two full LEDs (https://forum.espuino.de/t/led-verbesserungen-rework/1739)
