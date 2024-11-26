@@ -145,6 +145,8 @@ void Rfid_Task(void *parameter) {
 	#endif
 
 		if (RFID_PN5180_STATE_INIT == stateMachine) {
+			SPI.begin(RFID_SCK, RFID_MISO, RFID_MOSI, RFID_CS);
+			SPI.setFrequency(1000000);
 			nfc14443.begin();
 			nfc14443.reset();
 			// show PN5180 reader version

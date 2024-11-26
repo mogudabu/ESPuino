@@ -27,18 +27,19 @@ void SdCard_Init(void) {
 
 #ifndef SINGLE_SPI_ENABLE
 	#ifdef SD_MMC_1BIT_MODE
-		pinMode(2, INPUT_PULLUP);
-	while (!SD_MMC.begin("/sdcard", true)) {
+	Log_Println("SdCard_Init() - SD_MMC_1BIT_MODE with !SINGLE_SPI_ENABLE ", LOGLEVEL_NOTICE);
+	SD_MMC.setPins(SDMMC_CLK, SDMMC_CMD, SDMMC_D0);
+	while (!SD_MMC.begin("/sdcard", true, true, SDMMC_FREQ_DEFAULT)) {
 	#else
-		pinMode(SPISD_CS, OUTPUT);
+	Log_Println("SdCard_Init() - SPI", LOGLEVEL_NOTICE);
 	digitalWrite(SPISD_CS, HIGH);
 	spiSD.begin(SPISD_SCK, SPISD_MISO, SPISD_MOSI, SPISD_CS);
-	spiSD.setFrequency(1000000);
 	while (!SD.begin(SPISD_CS, spiSD)) {
 	#endif
 #else
 	#ifdef SD_MMC_1BIT_MODE
-	pinMode(2, INPUT_PULLUP);
+	Log_Println("SdCard_Init() - SD_MMC_1BIT_MODE with SINGLE_SPI_ENABLE", LOGLEVEL_NOTICE);
+	SD_MMC.setPins(SDMMC_CLK, SDMMC_CMD, SDMMC_D0);
 	while (!SD_MMC.begin("/sdcard", true)) {
 	#else
 	while (!SD.begin(SPISD_CS)) {
@@ -57,10 +58,10 @@ void SdCard_Init(void) {
 
 void SdCard_Exit(void) {
 // SD card goto idle mode
-#ifdef SINGLE_SPI_ENABLE
-	Log_Println("shutdown SD card (SPI)..", LOGLEVEL_NOTICE);
-	SD.end();
-#endif
+//#ifdef SINGLE_SPI_ENABLE
+//	Log_Println("shutdown SD card (SPI)..", LOGLEVEL_NOTICE);
+//	SD.end();
+//#endif
 #ifdef SD_MMC_1BIT_MODE
 	Log_Println("shutdown SD card (SD_MMC)..", LOGLEVEL_NOTICE);
 	SD_MMC.end();
